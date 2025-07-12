@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 export const LoginHomePage = () => {
   const [email, setEmail] = useState("");
@@ -10,8 +11,14 @@ export const LoginHomePage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-[430px] w-[800px] bg-gray-100">
-
+    <main className="flex justify-center items-center min-h-screen w-full bg-gray-100 p-4">
+      <Helmet>
+        <title>Login | Herz Edel</title>
+        <meta name="description" content="Accede a tu cuenta de Herz Edel para gestionar tus preferencias y servicios." />
+        <meta property="og:title" content="Login | Herz Edel" />
+        <meta property="og:description" content="Accede a tu cuenta de Herz Edel para gestionar tus preferencias y servicios." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-center text-yellow-600">Login</h2>
         <form className="mt-6" onSubmit={handleSubmit}>
@@ -43,6 +50,6 @@ export const LoginHomePage = () => {
           </button>
         </form>
       </div>
-    </div>
+    </main>
   );
 };

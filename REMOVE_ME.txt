@@ -1,0 +1,5 @@
+Eliminar archivos y dependencias de Redux Toolkit:
+- src/store/store.ts
+- src/store/external/navegacionExternalSlice.ts
+- @reduxjs/toolkit
+- react-redux

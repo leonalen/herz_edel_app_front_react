@@ -1,15 +1,16 @@
 import { Route, Routes } from "react-router-dom"
-import { HomePage } from "../External/pages/HomePage"
-import { Settings } from "@mui/icons-material"
+import { Suspense, lazy } from "react"
+import { FiSettings } from "react-icons/fi"
 
-
+const HomePage = lazy(() => import("../External/pages/HomePage"));
 
 export const AppRouter = () => {
-
   return (
-    <Routes>
+    <Suspense fallback={<div>Cargando...</div>}>
+      <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/settings" element={<Settings />} />
-    </Routes>
+        <Route path="/settings" element={<FiSettings size={48} />} />
+      </Routes>
+    </Suspense>
   )
 }

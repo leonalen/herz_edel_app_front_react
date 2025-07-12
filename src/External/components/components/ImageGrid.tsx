@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import React from "react";
 
 interface ImageGridProps {
@@ -13,19 +14,28 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images, alignment = "center" }) =
   }[alignment];
 
   return (
-    <div className={`flex flex-wrap ${justifyClass} gap-6 p-4`}>
-      {images.map((img, index) => (
-        <div key={index} className="w-60 text-center">
-          <img
-            src={img.src}
-            alt={img.title}
-            className="w-40 h-40 object-cover rounded-lg mx-auto border-2 border-gray-300"
-          />
-          <p className="mt-2 text-xl font-semibold">{img.title}</p>
-          <p className="text-gray-600">{img.description}</p>
-        </div>
-      ))}
-    </div>
+    <>
+      <Helmet>
+        <title>Galería de imágenes | Herz Edel</title>
+        <meta name="description" content="Galería de imágenes de ejemplares Herz Edel." />
+      </Helmet>
+      <section className={`flex flex-wrap ${justifyClass} gap-6 p-4`} aria-label="Galería de imágenes">
+        {images.map((img, index) => (
+          <figure key={index} className="w-60 text-center">
+            <img
+              src={img.src}
+              alt={img.title}
+              loading="lazy"
+              className="w-40 h-40 object-cover rounded-lg mx-auto border-2 border-gray-300 shadow-md transition-transform duration-200 hover:scale-105"
+            />
+            <figcaption className="mt-2">
+              <p className="text-xl font-semibold">{img.title}</p>
+              <p className="text-gray-600">{img.description}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </section>
+    </>
   );
 };
 

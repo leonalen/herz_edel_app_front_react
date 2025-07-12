@@ -1,8 +1,4 @@
-import { useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import "swiper/swiper-bundle.css";
-
+import { useState, useEffect, useRef } from "react";
 import slide1 from "../../../assets/img/carousel/imagenes/dos.jpg";
 import slide2 from "../../../assets/img/carousel/imagenes/tres.jpg";
 import slide3 from "../../../assets/img/carousel/imagenes/cuatro.jpg";
@@ -14,19 +10,8 @@ import slide8 from "../../../assets/img/carousel/imagenes/lucille2.jpg";
 
 export const CarouselHome = () => {
   const [isMobile, setIsMobile] = useState(false);
-
-  // Detectar el tamaño de pantalla
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768); // Menos de 768px es móvil
-    };
-
-    checkScreenSize(); // Ejecutar en carga inicial
-    window.addEventListener("resize", checkScreenSize);
-
-    return () => window.removeEventListener("resize", checkScreenSize);
-  }, []);
-
+  const [current, setCurrent] = useState(0);
+  const timeoutRef = useRef<number | null>(null);
   const images = [
     { name: "Mística", src: slide1 },
     { name: "Mística", src: slide2 },
@@ -38,10 +23,35 @@ export const CarouselHome = () => {
     { name: "Mística", src: slide8 },
   ];
 
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = window.setTimeout(() => {
+        setCurrent((prev) => (prev + 1) % images.length);
+      }, 3500);
+      return () => {
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      };
+    }
+    return undefined;
+  }, [current, isMobile, images.length]);
+
+  const goTo = (idx: number) => setCurrent(idx);
+  const prev = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  const next = () => setCurrent((prev) => (prev + 1) % images.length);
+
   return (
     <div className="flex items-center justify-center bg-gray-200 py-4">
       {isMobile ? (
-        // 📱 Grid de imágenes en móvil
         <div className="container mx-auto px-2 py-4 w-full max-w-screen-xl">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mx-auto">
             {images.map((dog, index) => (
@@ -56,34 +66,36 @@ export const CarouselHome = () => {
           </div>
         </div>
       ) : (
-        // 🖥 Carrusel en pantallas grandes
-        <div className="w-full max-w-[1000px] h-auto">
-          <Swiper
-            modules={[Autoplay, Pagination, Navigation]}
-            spaceBetween={10}
-            slidesPerView={1}
-            loop={true}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            speed={500}
-            pagination={{ clickable: true }}
-            navigation={true}
-            className="w-full h-auto"
+        <div className="w-full max-w-[1000px] h-[400px] relative flex items-center justify-center">
+          <button
+            onClick={prev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2 z-10 hover:bg-opacity-70 focus:outline-none"
+            aria-label="Anterior"
           >
-            {images.map((slide, index) => (
-              <SwiperSlide key={index}>
-                <div className="flex justify-center items-center h-full">
-                  <img
-                    src={slide.src}
-                    alt={`Slide ${index + 1}`}
-                    className="w-full h-[250px] sm:h-[350px] md:h-[500px] lg:h-[600px] object-cover"
-                  />
-                </div>
-              </SwiperSlide>
+            &#8592;
+          </button>
+          <img
+            src={images[current].src}
+            alt={images[current].name}
+            className="rounded-lg border-2 border-white shadow-lg object-cover w-full h-full"
+          />
+          <button
+            onClick={next}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2 z-10 hover:bg-opacity-70 focus:outline-none"
+            aria-label="Siguiente"
+          >
+            &#8594;
+          </button>
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            {images.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => goTo(idx)}
+                className={`w-3 h-3 rounded-full border-2 border-white ${current === idx ? 'bg-yellow-400' : 'bg-gray-400'} focus:outline-none`}
+                aria-label={`Ir a la imagen ${idx + 1}`}
+              />
             ))}
-          </Swiper>
+          </div>
         </div>
       )}
     </div>

@@ -1,52 +1,66 @@
-import { useDispatch } from "react-redux";
-import { addNavegacion } from "../../../../store/external/navegacionExternalSlice";
-
+import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
+import { useNavegacion } from "../../../../store/external/NavegacionContext";
 
 export const HembrasHomePages = () => {
-
-   const dispatch = useDispatch();
+   const { addNavegacion } = useNavegacion();
+   const { t } = useTranslation();
   
       const handleSelectReproductor = (name: string) => {
-          dispatch(addNavegacion(name.toLowerCase())); // Guarda en Redux con el nombre en minúsculas
+          addNavegacion(name.toLowerCase());
       };
   
       return (
-          <div className="container mx-auto px-2 py-4 max-w-screen-md">
-              <p className="text-xl font-bold text-center text-yellow-600">Reproductoras Herz Edel</p>
+          <main className="container mx-auto px-2 py-4 max-w-screen-md">
+             <Helmet>
+                <title>{t('hembras_titulo', 'Reproductoras Herz Edel')} | Herz Edel</title>
+                <meta name="description" content={t('hembras_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
+                <meta property="og:title" content={t('hembras_titulo', 'Reproductoras Herz Edel')} />
+                <meta property="og:description" content={t('hembras_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
+                <meta property="og:type" content="website" />
+             </Helmet>
+              <p className="text-xl font-bold text-center text-yellow-600">{t('hembras_titulo', 'Reproductoras Herz Edel - Hembras ADRK y líneas alemanas seleccionadas')}</p>
               <p className="mb-3 text-lg font-normal text-center text-yellow-600">
-                 Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.
+                 {t('hembras_desc', 'En Herz Edel seleccionamos hembras reproductoras de líneas de sangre alemanas e importando ejemplares ADRK para asegurar la mejor genética, temperamento y salud en cada camada.')}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-screen-xl mx-auto">
                   {[
                       {
                           name: "Maxima",
                           img: "/img/varios/hembras/maxi.jpg",
-                          details: "ADRK (HD- ED- ACRR)",
-                          lineage: "Vitus vom Hause Neubrand X Pussy vom Cassanova"
+                          details: t('maxima_details', 'ADRK (HD- ED- ACRR)'),
+                          lineage: t('maxima_lineage', 'Vitus vom Hause Neubrand X Pussy vom Cassanova')
                       },
                       {
                           name: "Mistica",
                           img:  "/img/varios/hembras/misti.jpg",
-                          details: "Cruza ADRK - Multi V1 - Campeona y Gran Campeona Argentina",
-                          lineage: "Pedro vom Willicher Wappen x Maxima vom Willicher Wappen"
+                          details: t('mistica_details', 'Cruza ADRK - Multi V1 - Campeona y Gran Campeona Argentina'),
+                          lineage: t('mistica_lineage', 'Pedro vom Willicher Wappen x Maxima vom Willicher Wappen')
                       },
                       {
                           name: "Tessa",
                           img: "/img/varios/hembras/tessa.jpg",
-                          details: "Cruza ADRK",
-                          lineage: "Zappa vom Kummelsee x Maxima vom Willicher Wappen"
+                          details: t('tessa_details', 'Cruza ADRK'),
+                          lineage: t('tessa_lineage', 'Zappa vom Kummelsee x Maxima vom Willicher Wappen')
                       }
                   ].map((dog, index) => (
                       <div 
                           key={index} 
                           className="flex flex-col items-center text-center h-full cursor-pointer"
                           onClick={() => handleSelectReproductor(dog.name)}
+                          role="button"
+                          tabIndex={0}
+                          aria-label={t('ver_detalles', { name: dog.name, defaultValue: `Ver detalles de ${dog.name}` })}
+                          onKeyPress={e => { if (e.key === 'Enter' || e.key === ' ') handleSelectReproductor(dog.name); }}
                       >
                             <img 
-                                alt={dog.name} 
+                                alt={`Foto de ${dog.name}, hembra Herz Edel`} 
                                 src={dog.img} 
                                 className="object-contain aspect-square rounded-lg h-48 w-48 border-2 border-white dark:border-gray-800"
-                                />
+                                loading="lazy"
+                                width="192"
+                                height="192"
+                            />
 
                           <div className="px-3 py-3 bg-white rounded-lg shadow dark:bg-gray-800 mt-4 flex flex-col h-full max-w-[250px]">
                               <p className="text-lg font-semibold text-yellow-500 dark:text-white">{dog.name}</p>
@@ -58,6 +72,6 @@ export const HembrasHomePages = () => {
                       </div>
                   ))}
               </div>
-          </div>
+          </main>
       );
   };

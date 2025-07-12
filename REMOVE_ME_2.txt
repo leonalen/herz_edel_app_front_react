@@ -1,0 +1,1 @@
+Eliminando src/store/store.ts y src/store/external/navegacionExternalSlice.ts

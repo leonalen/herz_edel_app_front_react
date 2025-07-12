@@ -3,13 +3,15 @@ import { createRoot } from 'react-dom/client'
 import './main.css'; // O './index.css' según el nombre que elijas
 import "./i18n"; // Importar la configuración de idiomas
 import App from './App.tsx'
-import { Provider } from 'react-redux';
-import { store } from './store/store.ts';
+import { HelmetProvider } from 'react-helmet-async';
+import { NavegacionProvider } from './store/external/NavegacionContext';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-     <Provider store={store}>
+    <HelmetProvider>
+      <NavegacionProvider>
         <App />
-     </Provider>
+      </NavegacionProvider>
+    </HelmetProvider>
   </StrictMode>,
 )
