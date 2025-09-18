@@ -5,21 +5,21 @@ import { useState } from "react";
 export const Nash = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const images = [
-    { name: "Nash", src: "/img/varios/machos/nash/1.JPG" },
-    { name: "Nash", src: "/img/varios/machos/nash/2.JPG" },
-    { name: "Nash", src: "/img/varios/machos/nash/3.JPG" },
-    { name: "Nash", src: "/img/varios/machos/nash/4.JPG" },
-    { name: "Nash", src: "/img/varios/machos/nash/5.JPG" },
-    { name: "Nash", src: "/img/varios/machos/nash/6.JPG" },
-    { name: "Nash", src: "/img/varios/machos/nash/7.JPG" },
-    { name: "Nash", src: "/img/varios/machos/nash/8.JPG" },
-    { name: "Nash", src: "/img/varios/machos/nash/9.JPG" },
-    { name: "Nash", src: "/img/varios/machos/nash/10.JPG" },
-    { name: "Nash", src: "/img/varios/machos/nash/11.jpg" },
-    { name: "Nash", src: "/img/varios/machos/nash/12.jpg" },
-    { name: "Nash", src: "/img/varios/machos/nash/13.jpg" },
-    { name: "Nash", src: "/img/varios/machos/nash/14.jpg" },
-    { name: "Nash", src: "/img/varios/machos/nash/15.jpg" },
+  { name: "Nash", src: "/img/varios/machos/nash/nash (1).JPG" },
+  { name: "Nash", src: "/img/varios/machos/nash/2.JPG" },
+  { name: "Nash", src: "/img/varios/machos/nash/3.JPG" },
+  { name: "Nash", src: "/img/varios/machos/nash/4.JPG" },
+  { name: "Nash", src: "/img/varios/machos/nash/5.JPG" },
+  { name: "Nash", src: "/img/varios/machos/nash/6.JPG" },
+  { name: "Nash", src: "/img/varios/machos/nash/7.JPG" },
+  { name: "Nash", src: "/img/varios/machos/nash/8.JPG" },
+  { name: "Nash", src: "/img/varios/machos/nash/9.JPG" },
+  { name: "Nash", src: "/img/varios/machos/nash/10.JPG" },
+  { name: "Nash", src: "/img/varios/machos/nash/11.jpg" },
+  { name: "Nash", src: "/img/varios/machos/nash/12.jpg" },
+  { name: "Nash", src: "/img/varios/machos/nash/13.jpg" },
+  { name: "Nash", src: "/img/varios/machos/nash/14.jpg" },
+  { name: "Nash", src: "/img/varios/machos/nash/15.jpg" },
   ];
   return (
     <main className="container mx-auto px-2 py-4 w-full max-w-screen-xl">
@@ -54,4 +54,4 @@ export const Nash = () => {
       </section>
     </main>
   );
-};
+}

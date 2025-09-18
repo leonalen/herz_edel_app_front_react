@@ -6,9 +6,24 @@ export const HembrasHomePages = () => {
    const { addNavegacion } = useNavegacion();
    const { t } = useTranslation();
   
-      const handleSelectReproductor = (name: string) => {
-          addNavegacion(name.toLowerCase());
-      };
+            const handleSelectReproductor = (name: string) => {
+                    switch (name.toLowerCase()) {
+                        case 'maxima':
+                            window.location.href = '/hembras/maxima';
+                            break;
+                        case 'mistica':
+                            window.location.href = '/hembras/mistica';
+                            break;
+                        case 'tessa':
+                            window.location.href = '/hembras/tessa';
+                            break;
+                        case 'xammy':
+                            window.location.href = '/hembras/xammy';
+                            break;
+                        default:
+                            addNavegacion(name.toLowerCase());
+                    }
+            };
   
       return (
           <main className="container mx-auto px-2 py-4 max-w-screen-md">
@@ -42,6 +57,12 @@ export const HembrasHomePages = () => {
                           img: "/img/varios/hembras/tessa.jpg",
                           details: t('tessa_details', 'Cruza ADRK'),
                           lineage: t('tessa_lineage', 'Zappa vom Kummelsee x Maxima vom Willicher Wappen')
+                      },
+                      {
+                          name: "Xammy",
+                          img: "/img/varios/hembras/xammy/1.jpg",
+                          details: t('xammy_details', 'Genética 100% ADRK (Vitus 2-2)'),
+                          lineage: t('xammy_lineage', "Jerry del' All Serrat X Maxima vom Willicher Wappen")
                       }
                   ].map((dog, index) => (
                       <div 

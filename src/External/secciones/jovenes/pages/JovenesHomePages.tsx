@@ -7,9 +7,18 @@ export const JovenesHomePages = () => {
     const { addNavegacion } = useNavegacion();
     const { t } = useTranslation();
 
-    const handleSelectReproductor = (name: string) => {
-        addNavegacion(name.toLowerCase());
-    };
+        const handleSelectReproductor = (name: string) => {
+                switch (name.toLowerCase()) {
+                    case 'bruce':
+                        window.location.href = '/jovenes/bruce';
+                        break;
+                    case 'zafira':
+                        window.location.href = '/jovenes/zafira';
+                        break;
+                    default:
+                        addNavegacion(name.toLowerCase());
+                }
+        };
 
     return (
         <main className="container mx-auto px-2 py-4 max-w-screen-md">
@@ -30,17 +39,17 @@ export const JovenesHomePages = () => {
             <div className="flex flex-wrap justify-center gap-8 max-w-screen-xl mx-auto">
                 {[
                     {
-                        name: "Xammy",
-                        img: "/img/varios/jovenes/xammy/1.jpg",
-                        details: t('xammy_details', 'Genética 100% ADRK (Vitus 2-2)'),
-                        lineage: t('xammy_lineage', "Jerry del' All Serrat X Maxima vom Willicher Wappen")
+                        name: "Bruce",
+                        img: "/img/varios/jovenes/bruce/1.JPG",
+                        details: t('bruce_details', 'Genética 100% ADRK'),
+                        lineage: t('bruce_lineage', 'Leal Do Riacho Negro')
                     },
                     {
                         name: "Zafira",
                         img: "/img/varios/jovenes/zafira/1.jpg",
                         details: t('zafira_details', 'Genética 100% ADRK'),
                         lineage: t('zafira_lineage', 'Nash vom Willicher Wappen X Tessa Max Herz Edel')
-                    },
+                    }
                 ].map((dog, index) => (
                     <div 
                         key={index} 
