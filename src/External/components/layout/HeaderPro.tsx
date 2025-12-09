@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { FiMenu } from "react-icons/fi";
 import { useState } from "react";
@@ -22,11 +21,11 @@ export const HeaderPro = () => {
 
   return (
     <>
-      <Helmet>
+ 
         <title>Herz Edel | Criadero de Rottweilers en Argentina</title>
         <meta name="description" content="Herz Edel: criadero de Rottweilers en Argentina. Ejemplares de pedigree, camadas, machos, hembras, jóvenes, fotos, contacto y más. Calidad, genética y pasión por la raza." />
         <meta name="keywords" content="Rottweiler, criadero, Argentina, perros, pedigree, camadas, machos, hembras, jóvenes, Herz Edel, venta de cachorros, perros de raza, criadero de Rottweilers, genética, fotos de Rottweiler, contacto" />
-      </Helmet>
+   
       <header className="sticky top-0 z-50 w-full bg-black border-b-4 border-white shadow-lg">
         <nav className="flex items-center justify-between px-4 py-2">
           {/* Menú Hamburguesa en Móvil */}

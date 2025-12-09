@@ -1,13 +1,10 @@
 import { Carousel } from "@material-tailwind/react";
-import { Helmet } from "react-helmet-async";
 
 const CarouselTransition = () => {
   return (
     <>
-      <Helmet>
-        <title>Carrusel de imágenes | Herz Edel</title>
-        <meta name="description" content="Carrusel de imágenes de ejemplares Herz Edel." />
-      </Helmet>
+      <title>Carrusel de imágenes | Herz Edel</title>
+      <meta name="description" content="Carrusel de imágenes de ejemplares Herz Edel." />
       <Carousel
         transition={{ duration: 0.5 }}
         loop={true}
@@ -43,4 +40,3 @@ const CarouselTransition = () => {
 };
 
 export default CarouselTransition;
-

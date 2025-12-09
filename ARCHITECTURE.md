@@ -1,46 +1,44 @@
 # Arquitectura Herz Edel App
 
 ```mermaid
-graph TD
-    A[public/img/varios] -->|Imágenes| B[hembras]
-    A -->|Imágenes| C[machos]
-    A -->|Imágenes| D[jovenes]
-    A -->|Imágenes| E[camadas]
-    
-    subgraph src/External
-        F[components]
-        G[pages]
-        H[secciones]
+graph TD;
+    subgraph "Assets Públicos"
+        A["public/img/varios"]
     end
     
-    F --> F1[layout]
-    F --> F2[ui]
-    G --> G1[HomePage.tsx]
-    G --> G2[Settings.tsx]
-    G --> G3[Dashboard.tsx]
-    H --> H1[hembras]
-    H --> H2[machos]
-    H --> H3[jovenes]
-    H --> H4[camadas]
-    H1 --> H1a[components]
-    H1 --> H1b[pages]
-    H3 --> H3a[components]
-    H3 --> H3b[pages]
-    H1a -->|Maxima, Mistica, Tessa, Xammy| I[Componentes Hembras]
-    H3a -->|Bruce, Zafira| J[Componentes Jovenes]
-    H1b -->|HembrasHomePages.tsx| K[Página Hembras]
-    H3b -->|JovenesHomePages.tsx| L[Página Jovenes]
-    
-    subgraph src/store/external
-        M[NavegacionContext.tsx]
+    subgraph "Código Fuente (src)"
+        subgraph "UI Compartida (components)"
+            F1["layout (Header, Sidebar)"]
+            F2["ui (Button, Card)"]
+        end
+
+        subgraph "Páginas Globales (pages)"
+            G1["HomePage.tsx (Landing)"]
+            G2["Settings.tsx"]
+            G3["Dashboard.tsx"]
+        end
+
+        subgraph "Módulos/Secciones (secciones)"
+            H1["hembras"]
+            H2["machos"]
+            H3["jovenes"]
+            H4["camadas"]
+        end
+
+        subgraph "Estado Global (store)"
+            M["NavegacionContext.tsx"]
+        end
     end
-    
-    F1 -->|Header, Sidebar, Layout| N[Layout]
-    F2 -->|Button, Card| O[UI]
-    
-    G1 -->|Landing| P[Home]
-    G2 -->|Configuración| Q[Settings]
-    G3 -->|Panel| R[Dashboard]
+
+    H1 -- "Contiene" --> H1_subgraph["<br>components/<br>pages/HembrasHomePage.tsx"]
+    H3 -- "Contiene" --> H3_subgraph["<br>components/<br>pages/JovenesHomePage.tsx"]
+
+    A --> H1 & H2 & H3 & H4
+
+    classDef default fill:#fff,stroke:#333,stroke-width:2px;
+    classDef subgraph-bg fill:#f2f2f2,stroke:#ccc,stroke-width:1px;
+
+    class A,F1,F2,G1,G2,G3,H1,H2,H3,H4,M,H1_subgraph,H3_subgraph default;
 ```
 
 ---

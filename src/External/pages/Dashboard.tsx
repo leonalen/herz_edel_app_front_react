@@ -1,22 +1,19 @@
 import { Card } from "../components/ui/Card";
-import { Helmet } from "react-helmet-async";
 
 export const Dashboard = () => {
   return (
     <main>
-      <Helmet>
-        <title>Panel de Control | Herz Edel</title>
-        <meta
-          name="description"
-          content="Panel de control de Herz Edel. Accede a estadísticas y configuraciones."
-        />
-        <meta property="og:title" content="Panel de Control | Herz Edel" />
-        <meta
-          property="og:description"
-          content="Panel de control de Herz Edel. Accede a estadísticas y configuraciones."
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <title>Panel de Control | Herz Edel</title>
+      <meta
+        name="description"
+        content="Panel de control de Herz Edel. Accede a estadísticas y configuraciones."
+      />
+      <meta property="og:title" content="Panel de Control | Herz Edel" />
+      <meta
+        property="og:description"
+        content="Panel de control de Herz Edel. Accede a estadísticas y configuraciones."
+      />
+      <meta property="og:type" content="website" />
       <section
         className="w-full max-w-5xl mx-auto p-4 md:p-8"
         role="region"

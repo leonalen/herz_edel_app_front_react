@@ -1,39 +1,24 @@
-import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useNavegacion } from "../../../../store/external/NavegacionContext";
+import OptimizedImage from "../../../components/OptimizedImage";
 
 export const HembrasHomePages = () => {
-   const { addNavegacion } = useNavegacion();
    const { t } = useTranslation();
+   const { addNavegacion } = useNavegacion();
   
-            const handleSelectReproductor = (name: string) => {
-                    switch (name.toLowerCase()) {
-                        case 'maxima':
-                            window.location.href = '/hembras/maxima';
-                            break;
-                        case 'mistica':
-                            window.location.href = '/hembras/mistica';
-                            break;
-                        case 'tessa':
-                            window.location.href = '/hembras/tessa';
-                            break;
-                        case 'xammy':
-                            window.location.href = '/hembras/xammy';
-                            break;
-                        default:
-                            addNavegacion(name.toLowerCase());
-                    }
-            };
+    const handleSelectReproductor = (name: string) => {
+        // Limpia el nombre para quitar prefijos como "RIP - "
+        const cleanName = name.replace(/rip\s*-\s*/i, '').trim();
+        addNavegacion(cleanName.toLowerCase());
+    };
   
       return (
           <main className="container mx-auto px-2 py-4 max-w-screen-md">
-             <Helmet>
-                <title>{t('hembras_titulo', 'Reproductoras Herz Edel')} | Herz Edel</title>
-                <meta name="description" content={t('hembras_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
-                <meta property="og:title" content={t('hembras_titulo', 'Reproductoras Herz Edel')} />
-                <meta property="og:description" content={t('hembras_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
-                <meta property="og:type" content="website" />
-             </Helmet>
+            <title>{t('hembras_titulo', 'Reproductoras Herz Edel')} | Herz Edel</title>
+            <meta name="description" content={t('hembras_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
+            <meta property="og:title" content={t('hembras_titulo', 'Reproductoras Herz Edel')} />
+            <meta property="og:description" content={t('hembras_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
+            <meta property="og:type" content="website" />
               <p className="text-xl font-bold text-center text-yellow-600">{t('hembras_titulo', 'Reproductoras Herz Edel - Hembras ADRK y líneas alemanas seleccionadas')}</p>
               <p className="mb-3 text-lg font-normal text-center text-yellow-600">
                  {t('hembras_desc', 'En Herz Edel seleccionamos hembras reproductoras de líneas de sangre alemanas e importando ejemplares ADRK para asegurar la mejor genética, temperamento y salud en cada camada.')}
@@ -41,28 +26,34 @@ export const HembrasHomePages = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-screen-xl mx-auto">
                   {[
                       {
-                          name: "Maxima",
-                          img: "/img/varios/hembras/maxi.jpg",
+                          name: "RIP - Maxima",
+                          img: "/img/varios/hembras/maxima/1.JPG",
                           details: t('maxima_details', 'ADRK (HD- ED- ACRR)'),
                           lineage: t('maxima_lineage', 'Vitus vom Hause Neubrand X Pussy vom Cassanova')
                       },
                       {
                           name: "Mistica",
                           img:  "/img/varios/hembras/misti.jpg",
-                          details: t('mistica_details', 'Cruza ADRK - Multi V1 - Campeona y Gran Campeona Argentina'),
+                          details: t('mistica_details', 'Cruza ADRK (HD- ED- ACRR) - Multi V1 - Campeona y Gran Campeona Argentina'),
                           lineage: t('mistica_lineage', 'Pedro vom Willicher Wappen x Maxima vom Willicher Wappen')
                       },
                       {
                           name: "Tessa",
                           img: "/img/varios/hembras/tessa.jpg",
-                          details: t('tessa_details', 'Cruza ADRK'),
+                          details: t('tessa_details', 'Cruza ADRK (HD- ED- ACRR)'),
                           lineage: t('tessa_lineage', 'Zappa vom Kummelsee x Maxima vom Willicher Wappen')
                       },
                       {
                           name: "Xammy",
                           img: "/img/varios/hembras/xammy/1.jpg",
-                          details: t('xammy_details', 'Genética 100% ADRK (Vitus 2-2)'),
+                          details: t('xammy_details', 'Genética 100% ADRK (HD- ED- ACRR) (Vitus 2-2)'),
                           lineage: t('xammy_lineage', "Jerry del' All Serrat X Maxima vom Willicher Wappen")
+                      },
+                      {
+                          name: "Zafira",
+                          img: "/img/varios/hembras/zafira/1.jpg",
+                          details: t('zafira_details', 'Genética 100% ADRK (HD- ED- ACRR)'),
+                          lineage: t('zafira_lineage', "Nash vom Willicher Wappen X Tessa Max Herz Edel")
                       }
                   ].map((dog, index) => (
                       <div 
@@ -74,7 +65,7 @@ export const HembrasHomePages = () => {
                           aria-label={t('ver_detalles', { name: dog.name, defaultValue: `Ver detalles de ${dog.name}` })}
                           onKeyPress={e => { if (e.key === 'Enter' || e.key === ' ') handleSelectReproductor(dog.name); }}
                       >
-                            <img 
+                            <OptimizedImage 
                                 alt={`Foto de ${dog.name}, hembra Herz Edel`} 
                                 src={dog.img} 
                                 className="object-contain aspect-square rounded-lg h-48 w-48 border-2 border-white dark:border-gray-800"

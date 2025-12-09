@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import React from "react";
 
 interface ImageGridProps {
@@ -15,10 +14,8 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images, alignment = "center" }) =
 
   return (
     <>
-      <Helmet>
-        <title>Galería de imágenes | Herz Edel</title>
-        <meta name="description" content="Galería de imágenes de ejemplares Herz Edel." />
-      </Helmet>
+      <title>Galería de imágenes | Herz Edel</title>
+      <meta name="description" content="Galería de imágenes de ejemplares Herz Edel." />
       <section className={`flex flex-wrap ${justifyClass} gap-6 p-4`} aria-label="Galería de imágenes">
         {images.map((img, index) => (
           <figure key={index} className="w-60 text-center">

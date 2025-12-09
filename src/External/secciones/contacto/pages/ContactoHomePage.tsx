@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa"; // Íconos de redes sociales
@@ -31,13 +30,11 @@ const handleSubmit = (e: React.FormEvent) => {
 
 return (
     <main>
-      <Helmet>
-        <title>{t('contacto_titulo', 'Contacto')} | Herz Edel</title>
-        <meta name="description" content={t('contacto_desc', 'Contáctanos para más información sobre Herz Edel.')} />
-        <meta property="og:title" content={`${t('contacto_titulo', 'Contacto')} | Herz Edel`} />
-        <meta property="og:description" content={t('contacto_desc', 'Contáctanos para más información sobre Herz Edel.')} />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <title>{t('contacto_titulo', 'Contacto')} | Herz Edel</title>
+      <meta name="description" content={t('contacto_desc', 'Contáctanos para más información sobre Herz Edel.')} />
+      <meta property="og:title" content={`${t('contacto_titulo', 'Contacto')} | Herz Edel`} />
+      <meta property="og:description" content={t('contacto_desc', 'Contáctanos para más información sobre Herz Edel.')} />
+      <meta property="og:type" content="website" />
       <div className="max-w-6xl mx-auto px-8 py-10">
         <h2 className="text-3xl font-bold text-yellow-600 text-center mb-2">{t('contacto_titulo', 'Contacto Herz Edel - Criadero de Rottweilers en Argentina, líneas alemanas y ejemplares ADRK')}</h2>
 

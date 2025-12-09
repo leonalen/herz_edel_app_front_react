@@ -1,11 +1,10 @@
-import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 
 
 export const Nash = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const images = [
-  { name: "Nash", src: "/img/varios/machos/nash/nash (1).JPG" },
+  { name: "Nash", src: "/img/varios/machos/nash/1.JPG" },
   { name: "Nash", src: "/img/varios/machos/nash/2.JPG" },
   { name: "Nash", src: "/img/varios/machos/nash/3.JPG" },
   { name: "Nash", src: "/img/varios/machos/nash/4.JPG" },
@@ -23,10 +22,10 @@ export const Nash = () => {
   ];
   return (
     <main className="container mx-auto px-2 py-4 w-full max-w-screen-xl">
-      <Helmet>
+    
         <title>Nash vom Willicher Wappen | Herz Edel</title>
         <meta name="description" content="Galería de imágenes de Nash vom Willicher Wappen, reproductor Herz Edel." />
-      </Helmet>
+
       <header>
         <h1 className="text-xl font-bold text-center text-yellow-600">Nash vom Willicher Wappen HD- ED- ACRR</h1>
         <p className="mb-3 text-lg font-normal text-center text-yellow-600">Importado de Alemania - Joven Campeón Argentino.</p>

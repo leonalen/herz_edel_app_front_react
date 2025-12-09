@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
 import { useState } from "react";
+import OptimizedImage from "../../../components/OptimizedImage";
 
 
 export const Maxima = () => {
@@ -14,10 +14,8 @@ export const Maxima = () => {
   ];
   return (
     <main className="container mx-auto px-2 py-4 w-full max-w-screen-xl">
-      <Helmet>
-        <title>Maxima vom Willicher Wappen | Herz Edel</title>
-        <meta name="description" content="Galería de imágenes de Maxima vom Willicher Wappen, importada de Alemania." />
-      </Helmet>
+      <title>Maxima vom Willicher Wappen | Herz Edel</title>
+      <meta name="description" content="Galería de imágenes de Maxima vom Willicher Wappen, importada de Alemania." />
       <header>
         <h1 className="text-xl font-bold text-center text-yellow-600">Maxima vom Willicher Wappen HD- ED- ACRR</h1>
         <p className="mb-3 text-lg font-normal text-center text-yellow-600">Importada de Alemania.</p>
@@ -30,16 +28,14 @@ export const Maxima = () => {
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            <picture>
-              <img
-                src={dog.src}
-                alt={`Foto de Maxima ${index + 1}`}
-                loading="lazy"
-                width="400"
-                height="400"
-                className={`rounded-lg border-2 border-white shadow-lg transition-transform duration-300 scale-75 ${hoveredIndex === index ? "scale-125 z-20" : ""}`}
-              />
-            </picture>
+            <OptimizedImage
+              src={dog.src}
+              alt={`Foto de Maxima ${index + 1}`}
+              loading="lazy"
+              width="400"
+              height="400"
+              className={`rounded-lg border-2 border-white shadow-lg transition-transform duration-300 scale-75 ${hoveredIndex === index ? "scale-125 z-20" : ""}`}
+            />
           </div>
         ))}
       </section>

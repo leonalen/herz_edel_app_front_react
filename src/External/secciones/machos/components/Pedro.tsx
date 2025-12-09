@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
 import { useState } from 'react'
+import OptimizedImage from '../../../components/OptimizedImage';
 
 export const Pedro = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -13,10 +13,8 @@ export const Pedro = () => {
   ];
   return (
     <main className="container mx-auto px-2 py-4 w-full max-w-screen-xl">
-      <Helmet>
-        <title>Pedro vom Willicher Wappen | Herz Edel</title>
-        <meta name="description" content="Galería de imágenes de Pedro vom Willicher Wappen, reproductor Herz Edel." />
-      </Helmet>
+      <title>Pedro vom Willicher Wappen | Herz Edel</title>
+      <meta name="description" content="Galería de imágenes de Pedro vom Willicher Wappen, reproductor Herz Edel." />
       <header>
         <h1 className="text-xl font-bold text-center text-yellow-600">Pedro vom Willicher Wappen HD +/- ED- ACRR</h1>
         <p className="mb-3 text-lg font-normal text-center text-yellow-600">Importado de Alemania.</p>
@@ -29,7 +27,7 @@ export const Pedro = () => {
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            <img
+            <OptimizedImage
               src={dog.src}
               alt={`Foto de Pedro ${index + 1}`}
               loading="lazy"

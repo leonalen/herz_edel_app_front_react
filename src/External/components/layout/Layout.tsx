@@ -1,16 +1,13 @@
-import { Helmet } from "react-helmet-async";
 import { HeaderPro } from "./HeaderPro";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <Helmet>
-        <title>Layout | Herz Edel</title>
-        <meta
-          name="description"
-          content="Estructura principal de la aplicación Herz Edel."
-        />
-      </Helmet>
+      <title>Layout | Herz Edel</title>
+      <meta
+        name="description"
+        content="Estructura principal de la aplicación Herz Edel."
+      />
       <div className="flex flex-col min-h-screen bg-gray-100">
         <HeaderPro />
         {/* Contenedor centrado y responsive */}

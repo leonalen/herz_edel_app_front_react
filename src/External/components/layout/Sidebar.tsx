@@ -1,13 +1,10 @@
-import { Helmet } from "react-helmet-async";
 import { FiGrid } from 'react-icons/fi';
 
 export const Sidebar = () => {
   return (
     <>
-      <Helmet>
-        <title>Barra lateral | Herz Edel</title>
-        <meta name="description" content="Barra lateral de navegación de Herz Edel." />
-      </Helmet>
+      <title>Barra lateral | Herz Edel</title>
+      <meta name="description" content="Barra lateral de navegación de Herz Edel." />
       <aside
         className="w-64 h-full bg-gray-900 text-white fixed top-0 left-0 flex flex-col shadow-lg z-40"
         aria-label="Barra lateral de navegación"

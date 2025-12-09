@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import React from "react";
 import {
   Navbar,
@@ -207,10 +206,8 @@ export function MegaMenuWithPlacement() {
 
   return (
     <>
-      <Helmet>
-        <title>Menú principal | Herz Edel</title>
-        <meta name="description" content="Navegación principal y secciones destacadas de Herz Edel." />
-      </Helmet>
+      <title>Menú principal | Herz Edel</title>
+      <meta name="description" content="Navegación principal y secciones destacadas de Herz Edel." />
       <Navbar className="mx-auto max-w-screen-xl px-4 py-2" aria-label="Menú principal" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography

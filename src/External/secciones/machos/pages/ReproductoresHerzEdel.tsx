@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useNavegacion } from "../../../../store/external/NavegacionContext";
 
@@ -12,13 +11,13 @@ const ReproductoresHerzEdel = () => {
 
     return (
         <main className="container mx-auto px-2 py-4 max-w-screen-md">
-            <Helmet>
+       
                 <title>{t('reproductores_titulo', 'Reproductores Herz Edel')} | Herz Edel</title>
                 <meta name="description" content={t('reproductores_desc', 'Las mejores líneas de sangre ADRK con los reproductores TOP Alemanes.')} />
                 <meta property="og:title" content={t('reproductores_titulo', 'Reproductores Herz Edel')} />
                 <meta property="og:description" content={t('reproductores_desc', 'Las mejores líneas de sangre ADRK con los reproductores TOP Alemanes.')} />
                 <meta property="og:type" content="website" />
-            </Helmet>
+        
             <header>
                 <h1 className="text-xl font-bold text-center text-yellow-600">{t('reproductores_titulo', 'Reproductores Herz Edel - Machos ADRK importados y líneas alemanas de excelencia')}</h1>
                 <p className="mb-3 text-lg font-normal text-center text-yellow-600">

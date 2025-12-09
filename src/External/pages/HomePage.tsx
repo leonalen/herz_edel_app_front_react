@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 import { CamadasHomePage } from "../secciones/camadas/pages/CamadasHomePage";
 import { ContactoHomePage } from "../secciones/contacto/pages/ContactoHomePage";
-import { LoginHomePage } from "../secciones/login/pages/LoginHomePage";
+import { LoginHomePage } from "../../Auth/pages/LoginHomePage";
 import { HomeSesscionesHomePage } from "../secciones/home/pages/HomeSesscionesHomePage";
 import ReproductoresHerzEdel from "../secciones/machos/pages/ReproductoresHerzEdel";
 import { Irko } from "../secciones/machos/components/Irko";
@@ -13,10 +12,14 @@ import { Maxima } from "../secciones/hembras/components/Maxima";
 import { Misitica } from "../secciones/hembras/components/Misitica";
 import { Tessa } from "../secciones/hembras/components/Tessa";
 import { JovenesHomePages } from "../secciones/jovenes/pages/JovenesHomePages";
-import { Xammy } from "../secciones/jovenes/components/Xammy";
-import { Zafira } from "../secciones/jovenes/components/Zafira";
 import { Footer } from "./components/Footer";
+import { Zafira } from "../secciones/hembras/components/Zafira";
+import { Xammy } from "../secciones/hembras/components/Xammy";
+import { Bruce } from "../secciones/jovenes/components/Bruce";
+import { Conny } from "../secciones/jovenes/components/Conny";
+import { DashboardPage } from "../../Logged/pages/DashboardPage";
 import { useNavegacion } from "../../store/external/NavegacionContext";
+import { useState } from "react";
 
 export const HomePage = () => {
   const { value: navegacion } = useNavegacion();
@@ -25,7 +28,6 @@ export const HomePage = () => {
   useEffect(() => {
     setNavecacionState(navegacion as string | undefined);
   }, [navegacion]);
-
   const componentes: Record<string, JSX.Element> = {
     inicio: <HomeSesscionesHomePage />,
     machos: <ReproductoresHerzEdel />,
@@ -42,11 +44,13 @@ export const HomePage = () => {
     tessa: <Tessa />,
     xammy: <Xammy />,
     zafira: <Zafira />,
+    bruce: <Bruce />,
+    conny: <Conny />, 
+    DashboardPage: <DashboardPage />,
   };
 
   return (
     <main>
-      <Helmet>
         <title>Inicio | Herz Edel</title>
         <meta
           name="description"
@@ -58,14 +62,13 @@ export const HomePage = () => {
           content="Bienvenido a Herz Edel. Descubre nuestras líneas de sangre ADRK y reproductores TOP Alemanes."
         />
         <meta property="og:type" content="website" />
-      </Helmet>
       <div className="flex flex-col min-h-screen bg-white">
         <header className="w-full px-4 py-2 bg-gray-100 shadow-md">
           <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800 tracking-tight">
             Herz Edel Kennel
           </h1>
         </header>
-        {/* Presentación SEO visible SOLO en la home */}
+        {/* Presentación SEO visible SOLO en la home (inicio) */}
         {(!navecacionState || navecacionState === "inicio") && (
           <section className="w-full max-w-2xl mx-auto mt-4 mb-2 text-center">
             <p className="text-lg text-gray-700 font-medium">
