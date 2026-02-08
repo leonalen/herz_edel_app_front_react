@@ -14,7 +14,7 @@ export const DashboardPage = () => {
         </h1>
         {user && (
           <p className="text-lg text-center text-gray-600 mb-8">
-            Bienvenido, <span className="font-semibold">{user.name}</span>!
+            Bienvenido, <span className="font-semibold">{user.nombre}</span>!
           </p>
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

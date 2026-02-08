@@ -4,8 +4,8 @@ import { loginApi } from "../context/authApi";
 import { useNavegacion } from "../../store/external/NavegacionContext";
 
 export const LoginHomePage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("test1@example.com");
+  const [password, setPassword] = useState("password123");
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();

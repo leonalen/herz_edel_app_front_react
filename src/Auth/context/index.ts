@@ -1,7 +1,7 @@
 // Define cómo se ve un objeto de usuario en toda la aplicación.
 export interface User {
     id: string;
-    name: string;
+    nombre: string;
     email: string;
     roles: string[];
 }
