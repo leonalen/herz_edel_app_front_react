@@ -29,13 +29,13 @@ export const JovenesHomePage = () => {
                 {[
                     {
                         name: "Bruce",
-                        img: "/img/varios/jovenes/bruce/1.JPG",
+                        img: "/img/varios/jovenes/bruce/1.jpg",
                         details: t('bruce_details', 'Genética 100% ADRK'),
                         lineage: t('bruce_lineage', 'Leal Do Riacho Negro')
                     },
                     {
                         name: "Conny",
-                        img: "/img/varios/jovenes/conny/1.JPG",
+                        img: "/img/varios/jovenes/conny/1.jpg",
                         details: t('zafira_details', 'Genética 100% ADRK'),
                         lineage: t('zafira_lineage', 'Pedro vom Willicher Wappen X Xammy Max Herz Edel')
                     }

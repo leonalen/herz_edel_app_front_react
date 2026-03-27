@@ -4,9 +4,9 @@ export const Xammy = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const images = [
     { name: "Xammy", src: "/img/varios/jovenes/xammy/1.jpg" },
-    { name: "Xammy", src: "/img/varios/jovenes/xammy/2.JPG" },
-    { name: "Xammy", src: "/img/varios/jovenes/xammy/3.JPG" },
-    { name: "Xammy", src: "/img/varios/jovenes/xammy/4.JPG" },
+    { name: "Xammy", src: "/img/varios/jovenes/xammy/2.jpg" },
+    { name: "Xammy", src: "/img/varios/jovenes/xammy/3.jpg" },
+    { name: "Xammy", src: "/img/varios/jovenes/xammy/4.jpg" },
     { name: "Xammy", src: "/img/varios/jovenes/xammy/5.jpg" },
   ];
   return (

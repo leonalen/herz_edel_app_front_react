@@ -29,9 +29,10 @@ export const JovenesHomePages = () => {
                 {[
                     {
                         name: "Bruce",
-                        img: "/img/varios/jovenes/bruce/1.JPG",
+                        img: "/img/varios/jovenes/bruce/1.jpg",
                         details: t('bruce_details', 'Genética 100% ADRK'),
-                        lineage: t('bruce_lineage', 'Leal Do Riacho Negro')
+                        lineage: t('bruce_lineage', 'Leal Do Riacho Negro - Preplacas HD-ED-'),
+                      
                     },
                     {
                         name: "Conny",
