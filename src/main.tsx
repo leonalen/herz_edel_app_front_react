@@ -6,12 +6,16 @@ import App from './App.tsx';
 import { AuthProvider } from './Auth/context/AuthContext.tsx';
 import { NavegacionProvider } from './store/external/NavegacionContext';
 
+import { HelmetProvider } from 'react-helmet-async';
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AuthProvider>
-      <NavegacionProvider>
-        <App />
-      </NavegacionProvider>
-    </AuthProvider>
+    <HelmetProvider>
+      <AuthProvider>
+        <NavegacionProvider>
+          <App />
+        </NavegacionProvider>
+      </AuthProvider>
+    </HelmetProvider>
   </StrictMode>,
 )

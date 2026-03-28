@@ -15,5 +15,8 @@ export default defineConfig({
       plugins: [visualizer({ open: true })],
     },
   },
+  esbuild: {
+    drop: ['console', 'debugger'],
+  },
 });
 

@@ -3,9 +3,9 @@ import { useState } from 'react'
 export const Conny = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const images = [
-    { name: "Conny", src: "/img/varios/jovenes/conny/1.jpg" },
-    { name: "Conny", src: "/img/varios/jovenes/conny/2.jpg" },
-    { name: "Conny", src: "/img/varios/jovenes/conny/3.jpg" },
+    { name: "Conny", src: "/img/varios/jovenes/conny/1.JPG" },
+    { name: "Conny", src: "/img/varios/jovenes/conny/2.JPG" },
+    { name: "Conny", src: "/img/varios/jovenes/conny/3.JPG" },
 
   ];
   return (
