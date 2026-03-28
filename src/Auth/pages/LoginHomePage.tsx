@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useAuth } from "../context/useAuth";
 import { loginApi } from "../context/authApi";
-import { useNavegacion } from "../../store/external/NavegacionContext";
+import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export const LoginHomePage = () => {
-  const [email, setEmail] = useState("test1@example.com");
-  const [password, setPassword] = useState("password123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
-  const { addNavegacion } = useNavegacion();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,8 +19,8 @@ export const LoginHomePage = () => {
     try {
       const { user, token } = await loginApi(email, password);
       login(user, token);
-      // Renderizar el componente DashboardPage usando el sistema de navegación de la app
-      addNavegacion("DashboardPage");
+      // Renderizar el componente DashboardPage usando el sistema de navegación de react router
+      navigate("/dashboard");
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
@@ -32,12 +33,14 @@ export const LoginHomePage = () => {
   };
 
   return (
-    <main className="flex justify-center items-center min-h-screen w-full bg-gray-100 p-4">
-      <title>Login | Herz Edel</title>
-      <meta name="description" content="Accede a tu cuenta de Herz Edel para gestionar tus preferencias y servicios." />
-      <meta property="og:title" content="Login | Herz Edel" />
-      <meta property="og:description" content="Accede a tu cuenta de Herz Edel para gestionar tus preferencias y servicios." />
-      <meta property="og:type" content="website" />
+    <main className="flex justify-center items-center h-full w-full bg-gray-100 p-4 min-h-[500px]">
+      <Helmet>
+        <title>Login | Herz Edel</title>
+        <meta name="description" content="Accede a tu cuenta de Herz Edel para gestionar tus preferencias y servicios." />
+        <meta property="og:title" content="Login | Herz Edel" />
+        <meta property="og:description" content="Accede a tu cuenta de Herz Edel para gestionar tus preferencias y servicios." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-center text-yellow-600">Login</h2>
         <form className="mt-6" onSubmit={handleSubmit}>

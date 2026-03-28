@@ -1,22 +1,22 @@
 import { useTranslation } from "react-i18next";
 import { FiMenu } from "react-icons/fi";
 import { useState } from "react";
-import { useNavegacion } from "../../../store/external/NavegacionContext";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../ui/Button";
 
 export const HeaderPro = () => {
   const { t } = useTranslation();
-  const { addNavegacion } = useNavegacion();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false); // Estado para menú móvil
 
   const menuItems = [
-    { label: t("inicio"), handler: () => addNavegacion("inicio") },
-    { label: t("machos"), handler: () => addNavegacion("machos") },
-    { label: t("hembras"), handler: () => addNavegacion("hembras") },
-    { label: t("jovenes"), handler: () => addNavegacion("jovenes") },
-    { label: t("camadas"), handler: () => addNavegacion("camadas") },
-    { label: t("contacto"), handler: () => addNavegacion("contacto") },
-    { label: t("login"), handler: () => addNavegacion("login") },
+    { label: t("inicio"), handler: () => navigate("/") },
+    { label: t("machos"), handler: () => navigate("/machos") },
+    { label: t("hembras"), handler: () => navigate("/hembras") },
+    { label: t("jovenes"), handler: () => navigate("/jovenes") },
+    { label: t("camadas"), handler: () => navigate("/camadas") },
+    { label: t("contacto"), handler: () => navigate("/contacto") },
+    { label: t("login"), handler: () => navigate("/login") },
   ];
 
   return (

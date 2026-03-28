@@ -1,24 +1,27 @@
 import { useTranslation } from "react-i18next";
-import { useNavegacion } from "../../../../store/external/NavegacionContext";
+import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import OptimizedImage from "../../../components/OptimizedImage";
 
 export const HembrasHomePages = () => {
    const { t } = useTranslation();
-   const { addNavegacion } = useNavegacion();
+   const navigate = useNavigate();
   
     const handleSelectReproductor = (name: string) => {
         // Limpia el nombre para quitar prefijos como "RIP - "
         const cleanName = name.replace(/rip\s*-\s*/i, '').trim();
-        addNavegacion(cleanName.toLowerCase());
+        navigate(`/hembras/${cleanName.toLowerCase()}`);
     };
   
       return (
           <main className="container mx-auto px-2 py-4 max-w-screen-md">
-            <title>{t('hembras_titulo', 'Reproductoras Herz Edel')} | Herz Edel</title>
-            <meta name="description" content={t('hembras_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
-            <meta property="og:title" content={t('hembras_titulo', 'Reproductoras Herz Edel')} />
-            <meta property="og:description" content={t('hembras_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
-            <meta property="og:type" content="website" />
+            <Helmet>
+              <title>{t('hembras_titulo', 'Reproductoras Herz Edel')} | Herz Edel</title>
+              <meta name="description" content={t('hembras_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
+              <meta property="og:title" content={t('hembras_titulo', 'Reproductoras Herz Edel')} />
+              <meta property="og:description" content={t('hembras_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
+              <meta property="og:type" content="website" />
+            </Helmet>
               <p className="text-xl font-bold text-center text-yellow-600">{t('hembras_titulo', 'Reproductoras Herz Edel - Hembras ADRK y líneas alemanas seleccionadas')}</p>
               <p className="mb-3 text-lg font-normal text-center text-yellow-600">
                  {t('hembras_desc', 'En Herz Edel seleccionamos hembras reproductoras de líneas de sangre alemanas e importando ejemplares ADRK para asegurar la mejor genética, temperamento y salud en cada camada.')}
