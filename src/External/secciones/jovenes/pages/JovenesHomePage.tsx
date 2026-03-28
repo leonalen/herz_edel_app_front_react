@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useNavegacion } from "../../../../store/external/NavegacionContext";
-import OptimizedImage from "../../../components/OptimizedImage";
+import { OptimizedImage } from "../../../components/OptimizedImage";
+import { Helmet } from 'react-helmet-async';
 
 
 export const JovenesHomePage = () => {
@@ -13,11 +14,13 @@ export const JovenesHomePage = () => {
 
   return (
         <main className="container mx-auto px-2 py-4 max-w-screen-md">
+        <Helmet>
             <title>{t('jovenes_titulo', 'Jovenes Herz Edel')} | Herz Edel</title>
             <meta name="description" content={t('jovenes_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
             <meta property="og:title" content={t('jovenes_titulo', 'Jovenes Herz Edel')} />
             <meta property="og:description" content={t('jovenes_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
             <meta property="og:type" content="website" />
+        </Helmet>
 
             <p className="text-xl font-bold text-center text-yellow-600">{t('jovenes_titulo', 'Jovenes Herz Edel')}</p>
             <p className="mb-3 text-lg font-normal text-center text-yellow-600">
@@ -35,7 +38,7 @@ export const JovenesHomePage = () => {
                     },
                     {
                         name: "Conny",
-                        img: "/img/varios/jovenes/conny/1.jpg",
+                        img: "/img/varios/jovenes/conny/1.JPG",
                         details: t('zafira_details', 'Genética 100% ADRK'),
                         lineage: t('zafira_lineage', 'Pedro vom Willicher Wappen X Xammy Max Herz Edel')
                     }

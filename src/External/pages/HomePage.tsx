@@ -1,25 +1,27 @@
-import { useEffect } from "react";
-import { CamadasHomePage } from "../secciones/camadas/pages/CamadasHomePage";
-import { ContactoHomePage } from "../secciones/contacto/pages/ContactoHomePage";
-import { LoginHomePage } from "../../Auth/pages/LoginHomePage";
-import { HomeSesscionesHomePage } from "../secciones/home/pages/HomeSesscionesHomePage";
-import ReproductoresHerzEdel from "../secciones/machos/pages/ReproductoresHerzEdel";
-import { Irko } from "../secciones/machos/components/Irko";
-import { Nash } from "../secciones/machos/components/Nash";
-import { Pedro } from "../secciones/machos/components/Pedro";
-import { HembrasHomePages } from "../secciones/hembras/pages/HembrasHomePages";
-import { Maxima } from "../secciones/hembras/components/Maxima";
-import { Misitica } from "../secciones/hembras/components/Misitica";
-import { Tessa } from "../secciones/hembras/components/Tessa";
-import { JovenesHomePages } from "../secciones/jovenes/pages/JovenesHomePages";
-import { Footer } from "./components/Footer";
-import { Zafira } from "../secciones/hembras/components/Zafira";
-import { Xammy } from "../secciones/hembras/components/Xammy";
-import { Bruce } from "../secciones/jovenes/components/Bruce";
-import { Conny } from "../secciones/jovenes/components/Conny";
-import { DashboardPage } from "../../Logged/pages/DashboardPage";
+import { useEffect, useState, lazy, Suspense } from "react";
+import { Helmet } from 'react-helmet-async';
 import { useNavegacion } from "../../store/external/NavegacionContext";
-import { useState } from "react";
+import { Footer } from "./components/Footer";
+
+// Lazy loading the components to drastically reduce initial bundle size
+const CamadasHomePage = lazy(() => import("../secciones/camadas/pages/CamadasHomePage").then(m => ({ default: m.CamadasHomePage })));
+const ContactoHomePage = lazy(() => import("../secciones/contacto/pages/ContactoHomePage").then(m => ({ default: m.ContactoHomePage })));
+const LoginHomePage = lazy(() => import("../../Auth/pages/LoginHomePage").then(m => ({ default: m.LoginHomePage })));
+const HomeSesscionesHomePage = lazy(() => import("../secciones/home/pages/HomeSesscionesHomePage").then(m => ({ default: m.HomeSesscionesHomePage })));
+const ReproductoresHerzEdel = lazy(() => import("../secciones/machos/pages/ReproductoresHerzEdel"));
+const Irko = lazy(() => import("../secciones/machos/components/Irko").then(m => ({ default: m.Irko })));
+const Nash = lazy(() => import("../secciones/machos/components/Nash").then(m => ({ default: m.Nash })));
+const Pedro = lazy(() => import("../secciones/machos/components/Pedro").then(m => ({ default: m.Pedro })));
+const HembrasHomePages = lazy(() => import("../secciones/hembras/pages/HembrasHomePages").then(m => ({ default: m.HembrasHomePages })));
+const Maxima = lazy(() => import("../secciones/hembras/components/Maxima").then(m => ({ default: m.Maxima })));
+const Misitica = lazy(() => import("../secciones/hembras/components/Misitica").then(m => ({ default: m.Misitica })));
+const Tessa = lazy(() => import("../secciones/hembras/components/Tessa").then(m => ({ default: m.Tessa })));
+const Zafira = lazy(() => import("../secciones/hembras/components/Zafira").then(m => ({ default: m.Zafira })));
+const Xammy = lazy(() => import("../secciones/hembras/components/Xammy").then(m => ({ default: m.Xammy })));
+const JovenesHomePages = lazy(() => import("../secciones/jovenes/pages/JovenesHomePages").then(m => ({ default: m.JovenesHomePages })));
+const Bruce = lazy(() => import("../secciones/jovenes/components/Bruce").then(m => ({ default: m.Bruce })));
+const Conny = lazy(() => import("../secciones/jovenes/components/Conny").then(m => ({ default: m.Conny })));
+const DashboardPage = lazy(() => import("../../Logged/pages/DashboardPage").then(m => ({ default: m.DashboardPage })));
 
 export const HomePage = () => {
   const { value: navegacion } = useNavegacion();
@@ -51,17 +53,19 @@ export const HomePage = () => {
 
   return (
     <main>
-        <title>Inicio | Herz Edel</title>
-        <meta
-          name="description"
-          content="Bienvenido a Herz Edel. Descubre nuestras líneas de sangre ADRK y reproductores TOP Alemanes."
-        />
-        <meta property="og:title" content="Inicio | Herz Edel" />
-        <meta
-          property="og:description"
-          content="Bienvenido a Herz Edel. Descubre nuestras líneas de sangre ADRK y reproductores TOP Alemanes."
-        />
-        <meta property="og:type" content="website" />
+        <Helmet>
+          <title>Venta de Cachorros Rottweiler | Criadero Herz Edel</title>
+          <meta
+            name="description"
+            content="Bienvenido a Herz Edel. Criadero especialista en venta de cachorros Rottweiler y líneas de sangre ADRK en Argentina."
+          />
+          <meta property="og:title" content="Venta de Cachorros Rottweiler | Criadero Herz Edel" />
+          <meta
+            property="og:description"
+            content="Bienvenido a Herz Edel. Criadero especialista en venta de cachorros Rottweiler y líneas de sangre ADRK en Argentina."
+          />
+          <meta property="og:type" content="website" />
+        </Helmet>
       <div className="flex flex-col min-h-screen bg-white">
         <header className="w-full px-4 py-2 bg-gray-100 shadow-md">
           <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800 tracking-tight">
@@ -83,7 +87,9 @@ export const HomePage = () => {
           tabIndex={-1}
           aria-label="Contenido principal"
         >
-          {componentes[navecacionState || "inicio"]}
+          <Suspense fallback={<div className="flex justify-center p-12"><div className="w-10 h-10 border-4 border-yellow-500 border-t-transparent rounded-full animate-spin"></div></div>}>
+            {componentes[navecacionState || "inicio"]}
+          </Suspense>
         </main>
         {/* Footer siempre abajo */}
         <Footer />
