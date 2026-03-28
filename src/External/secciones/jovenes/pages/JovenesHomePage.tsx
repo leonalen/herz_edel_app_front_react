@@ -1,15 +1,15 @@
 import { useTranslation } from "react-i18next";
-import { useNavegacion } from "../../../../store/external/NavegacionContext";
+import { useNavigate } from "react-router-dom";
 import { OptimizedImage } from "../../../components/OptimizedImage";
 import { Helmet } from 'react-helmet-async';
 
 
 export const JovenesHomePage = () => {
-    const { addNavegacion } = useNavegacion();
+    const navigate = useNavigate();
     const { t } = useTranslation();
 
     const handleSelectReproductor = (name: string) => {
-        addNavegacion(name.toLowerCase());
+        navigate(`/jovenes/${name.toLowerCase()}`);
     };
 
   return (
