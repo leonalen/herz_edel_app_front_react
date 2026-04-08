@@ -6,6 +6,9 @@ export const Conny = () => {
     { name: "Conny", src: "/img/varios/jovenes/conny/1.JPG" },
     { name: "Conny", src: "/img/varios/jovenes/conny/2.JPG" },
     { name: "Conny", src: "/img/varios/jovenes/conny/3.JPG" },
+    { name: "Conny", src: "/img/varios/jovenes/conny/4.JPG" },
+    { name: "Conny", src: "/img/varios/jovenes/conny/5.JPG" },
+
 
   ];
   return (

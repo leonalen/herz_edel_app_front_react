@@ -11,6 +11,10 @@ export const Zafira = () => {
     { name: "Zafira", src: "/img/varios/hembras/zafira/5.jpg" },
     { name: "Zafira", src: "/img/varios/hembras/zafira/6.jpg" },
     { name: "Zafira", src: "/img/varios/hembras/zafira/7.jpg" },
+    { name: "Zafira", src: "/img/varios/hembras/zafira/8.jpg" },
+    { name: "Zafira", src: "/img/varios/hembras/zafira/9.jpg" },
+    { name: "Zafira", src: "/img/varios/hembras/zafira/10.jpg" },
+    { name: "Zafira", src: "/img/varios/hembras/zafira/11.jpg" },
   ];
   return (
     <main className="container mx-auto px-2 py-4 w-full max-w-screen-xl">

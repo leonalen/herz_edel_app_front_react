@@ -54,7 +54,7 @@ export const HembrasHomePages = () => {
                       },
                       {
                           name: "Zafira",
-                          img: "/img/varios/hembras/zafira/1.jpg",
+                          img: "/img/varios/hembras/zafira/11.jpg",
                           details: t('zafira_details', 'Genética 100% ADRK (HD- ED- ACRR)'),
                           lineage: t('zafira_lineage', "Nash vom Willicher Wappen X Tessa Max Herz Edel")
                       }

@@ -38,7 +38,7 @@ export const JovenesHomePage = () => {
                     },
                     {
                         name: "Conny",
-                        img: "/img/varios/jovenes/conny/1.JPG",
+                        img: "/img/varios/jovenes/conny/4.JPG",
                         details: t('zafira_details', 'Genética 100% ADRK'),
                         lineage: t('zafira_lineage', 'Pedro vom Willicher Wappen X Xammy Max Herz Edel')
                     }

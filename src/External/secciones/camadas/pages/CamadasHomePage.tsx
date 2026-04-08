@@ -16,7 +16,7 @@ export const CamadasHomePage = () => {
             <div className="w-full max-w-3xl mx-auto">
                 <ImageCard 
                     title={t('camadas_proxima', 'Próxima camada')} 
-                    imageSrc="/img/varios/camadas/camadaF.jpg"
+                    imageSrc="/img/varios/camadas/camadaH.jpg"
                     alt={t('camadas_proxima_alt', 'Foto de la próxima camada: Pedro x Tessa')}
                 />
             </div>
