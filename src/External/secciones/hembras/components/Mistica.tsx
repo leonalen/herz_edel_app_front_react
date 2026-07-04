@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import OptimizedImage from '../../../components/OptimizedImage';
+import { useState } from "react";
+import OptimizedImage from "../../../components/OptimizedImage";
+import { Head as Helmet } from "vite-react-ssg";
 
-export const Misitica = () => {
+export const Mistica = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const images = [
     { name: "Mistica", src: "/img/varios/hembras/mistica/1.jpg" },
@@ -25,8 +26,10 @@ export const Misitica = () => {
   ];
   return (
     <main className="container mx-auto px-2 py-4 w-full max-w-screen-xl">
-      <title>Mistica Max Herz Edel | Herz Edel</title>
-      <meta name="description" content="Galería de imágenes de Mistica Max Herz Edel, genética 100% ADRK, Multi V1, Campeona y Gran Campeona Argentina." />
+      <Helmet>
+        <title>Mistica Max Herz Edel | Herz Edel</title>
+        <meta name="description" content="Galería de imágenes de Mistica Max Herz Edel, genética 100% ADRK, Multi V1, Campeona y Gran Campeona Argentina." />
+      </Helmet>
       <header>
         <h1 className="text-xl font-bold text-center text-yellow-600">Mistica Max Herz Edel</h1>
         <p className="mb-3 text-lg font-normal text-center text-yellow-600">Genética 100% ADRK - Multi V1 - Campeona y Gran Campeona Argentina.</p>
@@ -51,5 +54,5 @@ export const Misitica = () => {
         ))}
       </section>
     </main>
-  )
-}
+  );
+};

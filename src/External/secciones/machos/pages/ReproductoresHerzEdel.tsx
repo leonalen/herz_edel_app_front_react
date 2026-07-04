@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Head as Helmet } from "vite-react-ssg";
 
 const ReproductoresHerzEdel = () => {
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ const ReproductoresHerzEdel = () => {
     return (
         <main className="container mx-auto px-2 py-4 max-w-screen-md">
         <Helmet>
-            <title>{t('reproductores_titulo', 'Reproductores Herz Edel')} | Herz Edel</title>
+            <title>{`${t('reproductores_titulo', 'Reproductores Herz Edel')} | Herz Edel`}</title>
             <meta name="description" content={t('reproductores_desc', 'Las mejores líneas de sangre ADRK con los reproductores TOP Alemanes.')} />
             <meta property="og:title" content={t('reproductores_titulo', 'Reproductores Herz Edel')} />
             <meta property="og:description" content={t('reproductores_desc', 'Las mejores líneas de sangre ADRK con los reproductores TOP Alemanes.')} />

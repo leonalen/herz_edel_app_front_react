@@ -1,26 +1,20 @@
 import { useState, useEffect, useRef } from "react";
-import slide1 from "../../../assets/img/carousel/imagenes/dos.jpg";
-import slide2 from "../../../assets/img/carousel/imagenes/tres.jpg";
-import slide3 from "../../../assets/img/carousel/imagenes/cuatro.jpg";
-import slide4 from "../../../assets/img/carousel/imagenes/cinco.jpg";
-import slide5 from "../../../assets/img/carousel/imagenes/2025-03-23 - leo.jpg";
-import slide6 from "../../../assets/img/carousel/imagenes/seis.jpg";
-import slide7 from "../../../assets/img/carousel/imagenes/lucille1.jpg";
-import slide8 from "../../../assets/img/carousel/imagenes/lucille2.jpg";
+import OptimizedImage from "../../components/OptimizedImage";
 
 export const CarouselHome = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [current, setCurrent] = useState(0);
   const timeoutRef = useRef<number | null>(null);
+  
   const images = [
-    { name: "Mística", src: slide1 },
-    { name: "Mística", src: slide2 },
-    { name: "Mística", src: slide3 },
-    { name: "Mística", src: slide4 },
-    { name: "Mística", src: slide5 },
-    { name: "Mística", src: slide6 },
-    { name: "Mística", src: slide7 },
-    { name: "Mística", src: slide8 },
+    { name: "Mística", src: "/img/carousel/imagenes/dos.jpg" },
+    { name: "Mística", src: "/img/carousel/imagenes/tres.jpg" },
+    { name: "Mística", src: "/img/carousel/imagenes/cuatro.jpg" },
+    { name: "Mística", src: "/img/carousel/imagenes/cinco.jpg" },
+    { name: "Mística", src: "/img/carousel/imagenes/2025-03-23 - leo.jpg" },
+    { name: "Mística", src: "/img/carousel/imagenes/seis.jpg" },
+    { name: "Mística", src: "/img/carousel/imagenes/lucille1.jpg" },
+    { name: "Mística", src: "/img/carousel/imagenes/lucille2.jpg" },
   ];
 
   useEffect(() => {
@@ -50,13 +44,13 @@ export const CarouselHome = () => {
   const next = () => setCurrent((prev) => (prev + 1) % images.length);
 
   return (
-    <div className="flex items-center justify-center bg-gray-200 py-4">
+    <div className="flex items-center justify-center bg-gray-200 py-4 w-full">
       {isMobile ? (
         <div className="container mx-auto px-2 py-4 w-full max-w-screen-xl">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mx-auto">
             {images.map((dog, index) => (
               <div key={index} className="relative flex justify-center items-center">
-                <img
+                <OptimizedImage
                   src={dog.src}
                   alt={dog.name}
                   className="rounded-lg border-2 border-white shadow-lg transition-transform duration-300 scale-90 hover:scale-105"
@@ -74,7 +68,7 @@ export const CarouselHome = () => {
           >
             &#8592;
           </button>
-          <img
+          <OptimizedImage
             src={images[current].src}
             alt={images[current].name}
             className="rounded-lg border-2 border-white shadow-lg object-cover w-full h-full"

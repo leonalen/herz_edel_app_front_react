@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import OptimizedImage from '../../../components/OptimizedImage';
+import { Head as Helmet } from "vite-react-ssg";
 
 export const Xammy = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -14,8 +15,10 @@ export const Xammy = () => {
 
   return (
     <main className="container mx-auto px-2 py-4 w-full max-w-screen-xl">
-      <title>Xammy Max Herz Edel | Herz Edel</title>
-      <meta name="description" content="Galería de imágenes de Xammy Max Herz Edel, genética 100% ADRK." />
+      <Helmet>
+        <title>Xammy Max Herz Edel | Herz Edel</title>
+        <meta name="description" content="Galería de imágenes de Xammy Max Herz Edel, genética 100% ADRK." />
+      </Helmet>
       <header>
         <h1 className="text-xl font-bold text-center text-yellow-600">Xammy Max Herz Edel</h1>
         <p className="mb-3 text-lg font-normal text-center text-yellow-600">Genética 100% ADRK (HD- ED- ACRR) (Vitus 2-2)</p>

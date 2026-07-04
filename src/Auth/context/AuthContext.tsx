@@ -20,9 +20,12 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(() => {
-    // Al iniciar, intenta cargar el usuario desde localStorage
-    const storedUser = localStorage.getItem('user');
-    return storedUser ? JSON.parse(storedUser) : null;
+    // Al iniciar, intenta cargar el usuario desde localStorage si estamos en el cliente
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      const storedUser = localStorage.getItem('user');
+      return storedUser ? JSON.parse(storedUser) : null;
+    }
+    return null;
   });
 
   const login = (userData: User, token: string) => {

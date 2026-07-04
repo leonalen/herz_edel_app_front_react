@@ -10,9 +10,9 @@ export const PublicLayout = () => {
       
       {/* Sub-Header Específico del Home de antes */}
       <header className="w-full px-4 py-2 bg-gray-200 shadow-sm border-b border-gray-300">
-        <h1 className="text-xl md:text-2xl font-bold text-center text-gray-800 tracking-tight">
+        <p className="text-xl md:text-2xl font-bold text-center text-gray-800 tracking-tight">
           Herz Edel Kennel
-        </h1>
+        </p>
       </header>
 
       {/* Contenido Dinámico de las Sub-Páginas */}

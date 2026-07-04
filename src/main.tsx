@@ -1,18 +1,9 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './main.css'; // O './index.css' según el nombre que elijas
-import "./i18n"; // Importar la configuración de idiomas
-import App from './App.tsx';
-import { AuthProvider } from './Auth/context/AuthContext.tsx';
+import { ViteReactSSG } from 'vite-react-ssg';
+import { routes } from './router/AppRouter';
+import './main.css';
+import "./i18n";
 
-import { HelmetProvider } from 'react-helmet-async';
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <HelmetProvider>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </HelmetProvider>
-  </StrictMode>,
-)
+export const createRoot = ViteReactSSG({
+  routes,
+  basename: import.meta.env.BASE_URL,
+});

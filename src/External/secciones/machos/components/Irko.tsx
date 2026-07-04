@@ -1,5 +1,6 @@
 import { useState } from "react";
 import OptimizedImage from "../../../components/OptimizedImage";
+import { Head as Helmet } from "vite-react-ssg";
 
 export const Irko = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -15,8 +16,10 @@ export const Irko = () => {
   ];
   return (
     <main className="container mx-auto px-2 py-4 w-full max-w-screen-xl">
-      <title>Irko de Batanen | Herz Edel</title>
-      <meta name="description" content="Galería de imágenes de Irko de Batanen, reproductor Herz Edel." />
+      <Helmet>
+        <title>Irko de Batanen | Herz Edel</title>
+        <meta name="description" content="Galería de imágenes de Irko de Batanen, reproductor Herz Edel." />
+      </Helmet>
       <header>
         <h1 className="text-xl font-bold text-center text-yellow-600">Irko de Batanen</h1>
         <p className="mb-3 text-lg font-normal text-center text-yellow-600">Importado de España - Genética 100% ADRK</p>

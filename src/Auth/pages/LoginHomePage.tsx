@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../context/useAuth";
 import { loginApi } from "../context/authApi";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Head as Helmet } from "vite-react-ssg";
 
 export const LoginHomePage = () => {
   const [email, setEmail] = useState("");

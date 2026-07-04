@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Head as Helmet } from "vite-react-ssg";
 import OptimizedImage from "../../../components/OptimizedImage";
 
 export const HembrasHomePages = () => {
@@ -16,7 +16,7 @@ export const HembrasHomePages = () => {
       return (
           <main className="container mx-auto px-2 py-4 max-w-screen-md">
             <Helmet>
-              <title>{t('hembras_titulo', 'Reproductoras Herz Edel')} | Herz Edel</title>
+              <title>{`${t('hembras_titulo', 'Reproductoras Herz Edel')} | Herz Edel`}</title>
               <meta name="description" content={t('hembras_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
               <meta property="og:title" content={t('hembras_titulo', 'Reproductoras Herz Edel')} />
               <meta property="og:description" content={t('hembras_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />

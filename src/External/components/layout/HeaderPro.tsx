@@ -18,13 +18,7 @@ export const HeaderPro = () => {
   ];
 
   return (
-    <>
- 
-        <title>Herz Edel | Criadero de Rottweilers en Argentina</title>
-        <meta name="description" content="Herz Edel: criadero de Rottweilers en Argentina. Ejemplares de pedigree, camadas, machos, hembras, jóvenes, fotos, contacto y más. Calidad, genética y pasión por la raza." />
-        <meta name="keywords" content="Rottweiler, criadero, Argentina, perros, pedigree, camadas, machos, hembras, jóvenes, Herz Edel, venta de cachorros, perros de raza, criadero de Rottweilers, genética, fotos de Rottweiler, contacto" />
-   
-      <header className="sticky top-0 z-50 w-full bg-black border-b-4 border-white shadow-lg">
+    <header className="sticky top-0 z-50 w-full bg-black border-b-4 border-white shadow-lg">
         <nav className="flex items-center justify-between px-4 py-2">
           {/* Menú Hamburguesa en Móvil */}
           <button
@@ -99,6 +93,5 @@ export const HeaderPro = () => {
           </div>
         )}
       </header>
-    </>
   );
 };

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import OptimizedImage from '../../../components/OptimizedImage';
+import { Head as Helmet } from "vite-react-ssg";
 
 export const Zafira = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -18,8 +19,10 @@ export const Zafira = () => {
   ];
   return (
     <main className="container mx-auto px-2 py-4 w-full max-w-screen-xl">
-      <title>Zafira Herz Edel | Herz Edel</title>
-      <meta name="description" content="Galería de imágenes de Zafira Herz Edel, línea de sangre 100% ADRK." />
+      <Helmet>
+        <title>Zafira Herz Edel | Herz Edel</title>
+        <meta name="description" content="Galería de imágenes de Zafira Herz Edel, línea de sangre 100% ADRK." />
+      </Helmet>
       <header>
         <h1 className="text-xl font-bold text-center text-yellow-600">Zafira Herz Edel</h1>
         <p className="mb-3 text-lg font-normal text-center text-yellow-600">Línea de sangre 100% ADRK</p>

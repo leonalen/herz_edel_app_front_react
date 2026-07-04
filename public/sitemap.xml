@@ -9,12 +9,52 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://herzedel.com.ar/machos/pedro</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://herzedel.com.ar/machos/irko</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://herzedel.com.ar/machos/nash</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://herzedel.com.ar/hembras</loc>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://herzedel.com.ar/hembras/maxima</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://herzedel.com.ar/hembras/mistica</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://herzedel.com.ar/hembras/tessa</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://herzedel.com.ar/hembras/zafira</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://herzedel.com.ar/hembras/xammy</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://herzedel.com.ar/jovenes</loc>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://herzedel.com.ar/jovenes/bruce</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://herzedel.com.ar/jovenes/conny</loc>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://herzedel.com.ar/camadas</loc>

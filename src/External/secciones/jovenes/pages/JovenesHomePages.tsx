@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Head as Helmet } from "vite-react-ssg";
 import OptimizedImage from "../../../components/OptimizedImage";
 
 
@@ -15,7 +15,7 @@ export const JovenesHomePages = () => {
     return (
         <main className="container mx-auto px-2 py-4 max-w-screen-md">
             <Helmet>
-              <title>{t('jovenes_titulo', 'Jovenes Herz Edel')} | Herz Edel</title>
+              <title>{`${t('jovenes_titulo', 'Jovenes Herz Edel')} | Herz Edel`}</title>
               <meta name="description" content={t('jovenes_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
               <meta property="og:title" content={t('jovenes_titulo', 'Jovenes Herz Edel')} />
               <meta property="og:description" content={t('jovenes_desc', 'Líneas de sangre 100% ADRK con los reproductores TOP Alemanes.')} />
@@ -39,9 +39,9 @@ export const JovenesHomePages = () => {
                     },
                     {
                         name: "Conny",
-                        img: "/img/varios/jovenes/conny/4.JPG",
-                        details: t('zafira_details', 'Genética 100% ADRK'),
-                        lineage: t('zafira_lineage', 'Pedro vom Willicher Wappen X Xammy Max Herz Edel')
+                        img: "/img/varios/jovenes/conny/main.jpg",
+                        details: t('conny_details', 'Genética 100% ADRK - Joven Campeona Argentina'),
+                        lineage: t('conny_lineage', 'Pedro vom Willicher Wappen X Xammy Max Herz Edel')
                     }
                 ].map((dog, index) => (
                     <div 
@@ -64,7 +64,7 @@ export const JovenesHomePages = () => {
                             width="192"
                             height="192"
                         />
-                        <div id={`details-${dog.name}`} className="px-3 py-3 bg-white rounded-lg shadow dark:bg-gray-800 mt-4 flex flex-col h-full max-w-[250px]">
+                        <div id={`details-${dog.name}`} className="px-3 py-3 bg-white rounded-lg shadow dark:bg-gray-800 mt-4 flex flex-col w-[250px] h-[160px]">
                             <p className="text-lg font-semibold text-yellow-500 dark:text-white">{dog.name}</p>
                             <p className="text-md font-light text-gray-600 dark:text-gray-200">{dog.details}</p>
                             <p className="py-2 text-sm font-light text-gray-500 dark:text-gray-400 flex-grow">
